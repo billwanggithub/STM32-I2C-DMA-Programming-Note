@@ -60,8 +60,8 @@ all: main-build
 main-build: test_i2c.elf secondary-outputs
 
 # Tool invocations
-test_i2c.elf test_i2c.map: $(OBJS) $(USER_OBJS) D:\github\STM32_LIB\test_i2c_f411\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "test_i2c.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\github\STM32_LIB\test_i2c_f411\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_i2c.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+test_i2c.elf test_i2c.map: $(OBJS) $(USER_OBJS) D:\github\STM32\ I2C\ DMA\ Programming\ Note\test_i2c_f411\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "test_i2c.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"D:\github\STM32 I2C DMA Programming Note\test_i2c_f411\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="test_i2c.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

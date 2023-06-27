@@ -21,6 +21,7 @@
 #include "dma.h"
 #include "i2c.h"
 #include "gpio.h"
+#include "string.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -44,7 +45,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+volatile HAL_StatusTypeDef halStatus;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -111,12 +112,7 @@ int main(void)
 
 	uint8_t rxData[16];
 	uint8_t txData[16];
-//	uint8_t address = 00;
 
-	//HAL_I2C_Master_Transmit_DMA(&hi2c1, (uint16_t)(address<<0x01u), config, sizeof(config));
-	//HAL_I2C_Master_Receive_DMA(&hi2c1, (uint16_t)((address<<0x01u)|0x01u), rxData, 16);
-
-	volatile HAL_StatusTypeDef halStatus;
 	// erase AT24C02
 	memset(txData, 00, 16);
 	HAL_I2C_Mem_Write_DMA(&hi2c1, 0xa0, 0, I2C_MEMADD_SIZE_8BIT, txData, 16);
